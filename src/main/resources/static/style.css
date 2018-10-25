@@ -1,0 +1,28 @@
+body {
+    width: 1300px;
+    margin: 40px auto 0 auto;
+    background: ghostwhite;
+}
+/************************************************************************/
+/*************      registration        *********************************/
+/************************************************************************/
+.regInput input {
+    margin-bottom: 10px;
+}
+
+.regInput:after {
+    content: "\a";
+    white-space: pre;
+}
+
+.regInputLastName input {
+    margin-left: 4px;
+}
+
+.regInputUsername input {
+    margin-left: 3px;
+}
+
+.regInputPassword input {
+    margin-left: 4px;
+}

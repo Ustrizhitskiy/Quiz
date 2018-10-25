@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+    <head>
+        <title>Quiz</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all"
+              href="/static/style.css" th:href="@{/static/style.css}"/>
+    </head>
+    <body>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign out" />
+        </form>
+        <p>List of users</p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="listUserThead">Id</th>
+                    <th class="listUserThead">First name</th>
+                    <th class="listUserThead">Last name</th>
+                    <th class="listUserThead">Username</th>
+                    <th class="listUserThead">Password</th>
+                    <th class="listUserThead">Roles</th>
+                    <th class="listUserThead">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td class="listUserTbody" th:text="${user.id}"></td>
+                    <td class="listUserTbody" th:text="${user.firstName}"></td>
+                    <td class="listUserTbody" th:text="${user.lastName}"></td>
+                    <td class="listUserTbody" th:text="${user.username}"></td>
+                    <td class="listUserTbody" th:text="${user.password}"></td>
+                    <td class="listUserTbody">
+                        <span th:each="role : ${user.roles}" th:text="${role} + ' '"></span>
+                    </td>
+                    <!--<td><a th:href="${'/user/' + ${user.id}}">Edit</a></td>-->
+                    <div class="user-attribute-vertical-space"></div>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="/">Main page</a></p>
+    </body>
+</html>
