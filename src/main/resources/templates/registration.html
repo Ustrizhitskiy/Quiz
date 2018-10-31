@@ -3,31 +3,25 @@
       xmlns="http://www.w3.org/1999/html"
       xmlns:form="http://www.w3.org/1999/html"
       lang="en">
-<head>
-    <title>Quiz</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all"
-          href="/static/style.css" th:href="@{/static/style.css}"/>
-<!--    <style>
-        .regInput:after {
-            content: "\a";
-            white-space: pre;
-        }
-    </style>-->
-</head>
-<body>
-    <p th:text="${message}"></p>
-    <p><strong>Fill in all fields to complete registration</strong></p>
-    <form th:action="@{/registration}" method="post">
-        <label class="regInput">Input first name: <input type="text" name="firstName" required="required" /> </label>
-        <label class="regInput regInputLastName">Input last name: <input type="text" name="lastName" required="required" /> </label>
-        <label class="regInput regInputUsername">Input username: <input type="text" name="username" required="required" /> </label>
-        <label class="regInput regInputPassword">Input password: <input type="text" name="password" required="required" /> </label>
-        <div>
-            <input type="submit" value="Register" />
-            <input type="reset" value="Reset" />
-        </div>
-    </form>
-    <p><a href="/">Home page</a> </p>
-</body>
+    <head>
+        <title>Quiz</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all"
+              href="/static/style.css" th:href="@{/static/style.css}"/>
+    </head>
+    <body>
+        <p th:text="${message}"></p>
+        <p><strong>Fill in all fields to complete registration</strong></p>
+        <form th:action="@{/registration}" method="post">
+            <label class="regInput">Input first name: <input type="text" name="firstName" required="required" /> </label>
+            <label class="regInput regInputLastName">Input last name: <input type="text" name="lastName" required="required" /> </label>
+            <label class="regInput regInputUsername">Input username: <input type="text" name="username" required="required" /> </label>
+            <label class="regInput regInputPassword">Input password: <input type="text" name="password" required="required" /> </label>
+            <div>
+                <input type="submit" value="Register" />
+                <input type="reset" value="Reset" />
+            </div>
+        </form>
+        <p><a href="/">Home page</a> </p>
+    </body>
 </html>

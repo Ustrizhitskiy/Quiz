@@ -1,5 +1,6 @@
 body {
     width: 1300px;
+    height: 100%;
     margin: 40px auto 0 auto;
     background: ghostwhite;
 }
@@ -25,4 +26,67 @@ body {
 
 .regInputPassword input {
     margin-left: 4px;
+}
+
+/**********************************************************************/
+/*****************      categories      *******************************/
+/**********************************************************************/
+.listCategoriesThead {
+    background-color: lightsteelblue;
+}
+
+.listCategoriesTbody {
+    background-color: #c1dbff;
+}
+
+.addCat {
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+    color: white;
+    font-size: 3em;
+}
+
+/**********************************************************************/
+/***************        addCategory     *******************************/
+/**********************************************************************/
+.inputNewCategory input {
+    margin-bottom: 15px;
+}
+
+
+/**********************************************************************/
+/****************       addTest     ***********************************/
+/**********************************************************************/
+.addTest {
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+    color: white;
+    font-size: 3em;
+}
+
+.inputSubmit input {
+    background: #f2f6f8; /* Цвет фона */
+    border: 1px solid #7a7b7e; /* Параметры рамки */
+    width: 80px; /* Ширина кнопки */
+    height: 30px; /* Высота */
+    border-radius: 2px;
+    font-size: 1em;
+}
+
+.editingCategory {
+    text-shadow: 1px 1px 1px black, 0 0 1em red;
+    color: coral;
+    font-size: 2em;
+}
+
+.editingCategory span {
+    margin-left: 20px;
+    text-shadow: 1px 1px 2px black, 0 0 1.1em red;
+    color: coral;
+    font-size: 3em;
+}
+
+.inputNewCategory {
+    margin-right: 100px;
+    text-shadow: 1px 1px 1px black, 0 0 3em red;
+    opacity: 0.8;
+    font-size: 1.3em;
 }

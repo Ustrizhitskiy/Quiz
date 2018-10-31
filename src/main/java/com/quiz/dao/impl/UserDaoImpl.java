@@ -43,4 +43,10 @@ public class UserDaoImpl implements UserDao {
         return criteria.list();
     }
 
+    @Override
+    public void deleteUser(User user) {
+        getSession().delete(user);
+    }
+
+
 }

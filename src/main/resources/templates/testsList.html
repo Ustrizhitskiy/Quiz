@@ -9,8 +9,13 @@
           href="/static/style.css" th:href="@{/static/style.css}"/>
 </head>
 <body>
-    <p><a class="nav-intro" href="admin/users">Show list of users</a></p>
-    <p><a class="nav-intro" href="admin/categories">All categories</a></p>
-    <p><a class="nav-intro" href="admin/tests">All tests</a></p>
+    <p>Current category: <span th:text="${currentCategory}"></span></p>
+    <p>List tests:</p>
+    <tr th:each="test : ${tests}">
+        <td class="listTests" th:text="${test.level}"></td>
+        <!--<td class="listTests" th:text="${test.category.title}"></td>-->
+        <div class="user-attribute-vertical-space"></div>
+    </tr>
+    <p><a href="/categories">Back</a> </p>
 </body>
 </html>

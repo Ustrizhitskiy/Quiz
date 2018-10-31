@@ -2,16 +2,16 @@ package com.quiz.controllers;
 
 import com.quiz.models.Category;
 import com.quiz.models.Role;
+import com.quiz.models.Test;
 import com.quiz.models.User;
 import com.quiz.services.impl.CategoryServiceImpl;
+import com.quiz.services.impl.TestServiceImpl;
 import com.quiz.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +25,9 @@ public class AdminController {
 
     @Autowired
     CategoryServiceImpl categoryServiceImpl;
+
+    @Autowired
+    TestServiceImpl testServiceImpl;
 
     @GetMapping
     public String adminPanel() {
@@ -41,27 +44,53 @@ public class AdminController {
         return "usersList";
     }
 
-    @GetMapping("/cat")
+    @GetMapping("/categories")
     public String categoriesList(Model model) {
         List categories = categoryServiceImpl.getAllCategories();
         model.addAttribute("categories", categories);
-        return "categories";
+        return "categoriesList";
     }
 
-    @GetMapping("/addCat")
+    @GetMapping("/categories/addCat")
     public String addCat() {
         return "addCategory";
     }
 
-    @PostMapping("/addCat")
+    @PostMapping("/categories/addCat")
     public String saveNewCategory(Category category) {
         categoryServiceImpl.saveCategory(category);
-        return "redirect:/cat";
+        return "redirect:/categories";
     }
 
-    @GetMapping("/addTest")
-    public String addTest() {
+    @GetMapping("/categories/{category}/addTest")
+    public String addTestToCategory(@PathVariable String category, Model model) {
+        model.addAttribute("message", category);
         return "addTest";
+    }
+
+    @GetMapping("/categories/{category}")
+    public String showTetList(@PathVariable String category, Model model) {
+        Category categoryConstructor = categoryServiceImpl.getCategoryByTitle(category);
+        List testsInCategory = testServiceImpl.getAllTestsInCategory(categoryConstructor);
+        model.addAttribute("currentCategory", category);
+        model.addAttribute("tests", testsInCategory);
+        return "testsList";
+    }
+
+    @PostMapping("/categories/{category}")
+    public String saveNewTestLevel(@PathVariable String category,
+                                   @RequestParam String level, Model model) {
+        Category categoryConstructor = categoryServiceImpl.getCategoryByTitle(category);
+        System.out.println(categoryConstructor);
+        Test test = new Test(level, categoryConstructor);
+        testServiceImpl.saveTest(test);
+        System.out.println(test.getCategoryTitle());
+        List testsInCategory = testServiceImpl.getAllTestsInCategory(categoryConstructor);
+        System.out.println(testsInCategory);
+        model.addAttribute("currentCategory", category);
+        model.addAttribute("tests", testsInCategory);
+
+        return "testsList";
     }
 
 }
