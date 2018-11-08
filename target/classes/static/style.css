@@ -4,11 +4,26 @@ body {
     margin: 40px auto 0 auto;
     background: ghostwhite;
 }
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    opacity: 0.6;
+    color: #ff6686;
+}
+
+a:active {
+    opacity: 0.4;
+    color: blue;
+}
 /************************************************************************/
 /*************      registration        *********************************/
 /************************************************************************/
 .regInput input {
     margin-bottom: 10px;
+    width: 300px;
 }
 
 .regInput:after {
@@ -26,6 +41,19 @@ body {
 
 .regInputPassword input {
     margin-left: 4px;
+}
+
+/**********************************************************************/
+/*****************      login       ***********************************/
+/**********************************************************************/
+.input-login input[type="text"] {
+    width: 300px;
+    margin-left: 21px;
+}
+
+.input-login input[type="password"] {
+    width: 300px;
+    margin: 10px 0 10px 24px;
 }
 
 /**********************************************************************/
@@ -89,4 +117,34 @@ body {
     text-shadow: 1px 1px 1px black, 0 0 3em red;
     opacity: 0.8;
     font-size: 1.3em;
+}
+
+/*************************************************************************/
+/***************        categoriesList      ******************************/
+/*************************************************************************/
+.helloUser {
+    text-shadow: 1px 1px 1px black, 0 0 1em red;
+    color: coral;
+    font-size: 2em;
+}
+
+.logout input {
+    background: #f2f6f8; /* Цвет фона */
+    border: 1px solid #7a7b7e; /* Параметры рамки */
+    width: 60px; /* Ширина кнопки */
+    height: 18px; /* Высота */
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.listCategoriesTitle tr th:nth-of-type(1) {
+    width: 50px;
+}
+
+.listCategoriesTitle tr th:nth-of-type(2) {
+    width: 250px;
+}
+
+.listCategoriesTitle tr th:nth-of-type(3) {
+    width: 150px;
 }

@@ -11,8 +11,12 @@ import java.util.List;
 
 @Service
 public class TestServiceImpl implements TestService {
+
     @Autowired
     TestDao testDao;
+
+    @Autowired
+    private CategoryServiceImpl categoryServiceImpl;
 
     @Override
     public void saveTest(Test test) {
@@ -27,6 +31,17 @@ public class TestServiceImpl implements TestService {
     @Override
     public List getAllTestsInCategory(Category category) {
         return testDao.getAllTestsInCategory(category);
+    }
+
+    @Override
+    public Test findTestByCategoryTitleAndTestLevel(String title, String level) {
+        Category category = categoryServiceImpl.getCategoryByTitle(title);
+        List tests = getAllTestsInCategory(category);
+        for (Object test1 : tests) {
+            Test test = (Test) test1;
+            if (test.getLevel().equals(level)) return test;
+        }
+        return null;
     }
 
 }

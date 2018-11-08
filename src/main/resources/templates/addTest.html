@@ -9,6 +9,9 @@
           href="/static/style.css" th:href="@{/static/style.css}"/>
 </head>
 <body>
+    <form class="logout" th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign out" />
+    </form>
     <p class="editingCategory">Editing category: <span th:text="${category}"></span></p>
     <p class="addTest">Add test level</p>
     <form th:action="@{'/admin/categories/' + ${category}}" method="post">

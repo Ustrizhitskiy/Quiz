@@ -11,7 +11,7 @@
     </head>
     <body>
         <p th:text="${message}"></p>
-        <p><strong>Fill in all fields to complete registration</strong></p>
+        <p>Fill in all fields to complete registration:</p>
         <form th:action="@{/registration}" method="post">
             <label class="regInput">Input first name: <input type="text" name="firstName" required="required" /> </label>
             <label class="regInput regInputLastName">Input last name: <input type="text" name="lastName" required="required" /> </label>
@@ -22,6 +22,6 @@
                 <input type="reset" value="Reset" />
             </div>
         </form>
-        <p><a href="/">Home page</a> </p>
+        <p><a href="/">Start page</a> </p>
     </body>
 </html>

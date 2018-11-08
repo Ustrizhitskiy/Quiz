@@ -16,7 +16,7 @@
             <p>You have been logged out.</p>
         </div>
         <!--<p th:text="${message}"></p>-->
-        <form th:action="@{/login}" method="post">
+        <form class="loginForm" th:action="@{/login}" method="post">
             <div class="input-login">
                 <label>Username: <input type="text" name="username"/></label>
             </div>
@@ -29,6 +29,6 @@
             </div>
         </form>
         <p><a href="/registration">Registration</a></p>
-        <p><a href="/">Home page</a> </p>
+        <p><a href="/">Start page</a> </p>
     </body>
 </html>

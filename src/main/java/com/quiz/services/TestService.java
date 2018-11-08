@@ -13,4 +13,6 @@ public interface TestService {
 
     List getAllTestsInCategory(Category category);
 
+    Test findTestByCategoryTitleAndTestLevel(String title, String level);
+
 }

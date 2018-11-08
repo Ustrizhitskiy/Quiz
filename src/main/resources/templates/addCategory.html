@@ -9,7 +9,10 @@
               href="/static/style.css" th:href="@{/static/style.css}"/>
     </head>
     <body>
-    <p class="addCat">Add new category</p>
+        <form class="logout" th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign out" />
+        </form>
+        <p class="addCat">Add new category</p>
         <form th:action="@{/admin/categories/addCat}" method="post">    <!-- куда посылаем форму -->
             <label class="inputNewCategory">Input new category: <input type="text" name="title" required="required" /> </label>
             <div class="inputSubmit">

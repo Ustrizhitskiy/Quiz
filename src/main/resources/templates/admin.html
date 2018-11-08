@@ -9,8 +9,10 @@
           href="/static/style.css" th:href="@{/static/style.css}"/>
 </head>
 <body>
+    <form class="logout" th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign out" />
+    </form>
     <p><a class="nav-intro" href="admin/users">Show list of users</a></p>
     <p><a class="nav-intro" href="admin/categories">All categories</a></p>
-    <p><a class="nav-intro" href="admin/tests">All tests</a></p>
 </body>
 </html>
