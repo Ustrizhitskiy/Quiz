@@ -15,4 +15,6 @@ public interface AnswerService {
 
     Answer getRightAnswerInQuestion(Question question);
 
+    Answer findAnswerById(Long id);
+
 }

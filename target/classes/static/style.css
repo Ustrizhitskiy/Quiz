@@ -93,8 +93,8 @@ a:active {
 .inputSubmit input {
     background: #f2f6f8; /* Цвет фона */
     border: 1px solid #7a7b7e; /* Параметры рамки */
-    width: 80px; /* Ширина кнопки */
-    height: 30px; /* Высота */
+    width: 70px; /* Ширина кнопки */
+    height: 25px; /* Высота */
     border-radius: 2px;
     font-size: 1em;
 }
@@ -147,4 +147,21 @@ a:active {
 
 .listCategoriesTitle tr th:nth-of-type(3) {
     width: 150px;
+}
+
+
+.inputNewQuestion input {
+    margin: 0 0 10px 0;
+    width: 1000px;
+}
+
+/*********************************************************************/
+/*********************      question        **************************/
+/*********************************************************************/
+input[type="radio"] {
+    margin: 0 10px 10px 20px;
+}
+
+label .spanRadio {
+    font-size: 1.2em;
 }

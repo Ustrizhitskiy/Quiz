@@ -58,7 +58,7 @@ public class AdminController {
         String userFirstName = userByUsername.getFirstName();
         model.addAttribute("categories", categories);
         model.addAttribute("userName", userFirstName);
-        if (userByUsername.getUsername().equals("admin")) {
+        if (userByUsername.getRoles().contains(Role.ADMIN)) {
             model.addAttribute("addTestToCatHead", "Edit");
             model.addAttribute("addTestToCat", "Add new test to category");
             model.addAttribute("addNewCategory", "Add new category");

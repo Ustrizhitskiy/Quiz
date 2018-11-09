@@ -52,4 +52,12 @@ public class AnswerDaoImpl implements AnswerDao {
         }
         return null;
     }
+
+    @Override
+    public Answer findAnswerById(Long id) {
+        Criteria criteria = getSession().createCriteria(Answer.class);
+        criteria.add(Restrictions.eq("id", id));
+        return (Answer) criteria.list().get(0);
+    }
+
 }

@@ -34,4 +34,10 @@ public class AnswerServiceImpl implements AnswerService {
     public Answer getRightAnswerInQuestion(Question question) {
         return answerDao.getRightAnswerInQuestion(question);
     }
+
+    @Override
+    public Answer findAnswerById(Long id) {
+        return answerDao.findAnswerById(id);
+    }
+
 }

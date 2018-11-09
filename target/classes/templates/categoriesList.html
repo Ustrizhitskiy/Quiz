@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+    <head>
+        <title>Quiz</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all"
+              href="/static/style.css" th:href="@{/static/style.css}"/>
+    </head>
+    <body>
+        <form class="logout" th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign out" />
+        </form>
+        <p><span style="opacity: 0.7">Hello, </span><span class="helloUser" th:text="${userName} + '!'"></span></p>
+        <p style="opacity: 0.8">Choose category:</p>
+        <table>
+            <thead class="listCategoriesTitle">
+                <tr>
+                    <th class="listCategoriesThead">Id</th>
+                    <th class="listCategoriesThead">Title</th>
+                    <th class="listCategoriesThead">Start test</th>
+                    <th class="listCategoriesThead" th:text="${addTestToCatHead}"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="category : ${categories}">
+                    <td class="listCategoriesTbody" th:text="${category.id}"></td>
+                    <td class="listCategoriesTbody" th:text="${category.title}"></td>
+                    <td class="listCategoriesTbody"><a th:href="@{'/categories/' + ${category.title}}">Choose test level</a> </td>
+                    <td class="listCategoriesTbody"><a th:href="@{'/admin/categories/' + ${category.title} +
+                            '/addTest'}" th:text="${addTestToCat}"></a></td>
+                    <div class="user-attribute-vertical-space"></div>
+                </tr>
+            </tbody>
+        </table>
+        <p>---------------------------------------------------</p>
+        <p><a href="/admin/categories/addCat" th:text="${addNewCategory}"></a></p>
+    </body>
+</html>

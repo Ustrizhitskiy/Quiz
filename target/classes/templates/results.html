@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+    <head>
+        <title>Quiz</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all"
+              href="/static/style.css" th:href="@{/static/style.css}"/>
+    </head>
+    <body>
+        <h1>Results</h1>
+        <p>You have right answered for <span th:text="${numberOfRightAnswers}"></span>answers </p>
+    </body>
+</html>
