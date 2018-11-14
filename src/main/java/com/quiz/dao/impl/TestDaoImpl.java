@@ -36,7 +36,7 @@ public class TestDaoImpl implements TestDao {
     }
 
     @Override
-    public List getAllTestsInCategory(Category category) {
+    public List<Test> getAllTestsInCategory(Category category) {
         Criteria criteria = getSession().createCriteria(Test.class);
         criteria.add(Restrictions.eq("category", category));
         return criteria.list();

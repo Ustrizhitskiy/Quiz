@@ -29,4 +29,23 @@ public class User {
     @Enumerated (EnumType.STRING)   // чтобы хранить все роли в виде одной строки
     private Set<Role> roles;
 
+/*    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "users_tests",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "test_id", referencedColumnName = "id"))
+    private List<Test> testsOfUser;
+
+    public void addTestToUser(Test test) {
+        testsOfUser.add(test);
+    }*/
+
+    public User(String firstName, String lastName, String username, String password, boolean active, Set<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.roles = roles;
+    }
+
 }

@@ -29,6 +29,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public void updateUser(User user) {
+        getSession().update(user);
+    }
+
+
+    @Override
     public List getAllUsers() {
         Criteria criteria = getSession().createCriteria(User.class);
         //criteria.setFirstResult(2);     // начиная с какого элемента добавлять в список

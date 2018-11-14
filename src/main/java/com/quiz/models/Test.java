@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,8 +29,19 @@ public class Test {
         this.category = category;
     }
 
-    public String getCategoryTitle() {
-        return category.getTitle();
+/*    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "testsOfUser")
+    private List<User> usersOfTest;*/
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
 }
