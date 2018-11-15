@@ -54,6 +54,7 @@ public class TestConroller {
     public String startTest(@PathVariable String category,
                             @PathVariable String test,
                             @PathVariable int count, Model model) {
+        List questions = getListOfQuestionsInTest(category, test);
         if (count == 1) {
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
             User userByUsername = (User) userServiceImpl.getUserByUsername(name).get(0);
@@ -63,11 +64,10 @@ public class TestConroller {
                 rightNumberServiceImpl.deleteNumber(rightNumberisEmpty);
             }
             String str = userByUsername.getId().toString() + "," + addingTest.getId().toString();
-            RightNumber rightNumber = new RightNumber(str, 0);
+            RightNumber rightNumber = new RightNumber(str, questions.size(), 0);
             rightNumberServiceImpl.saveNumber(rightNumber);
             System.out.println(rightNumber);
         }
-        List questions = getListOfQuestionsInTest(category, test);
         if (questions.size() < count) {
             String str = "/categories/" + category + "/" + test +"/results";
             return "redirect:" + str;
@@ -114,6 +114,7 @@ public class TestConroller {
         Test addingTest = testServiceImpl.findTestByCategoryTitleAndTestLevel(category, test);
         RightNumber rightNumber = rightNumberServiceImpl.findRightNumber(userByUsername, addingTest);
         model.addAttribute("numberOfRightAnswers", rightNumber.getNumber());
+        model.addAttribute("numberOfQuestions", rightNumber.getQuestions());
         return "results";
     }
 

@@ -29,9 +29,6 @@ public class Test {
         this.category = category;
     }
 
-/*    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "testsOfUser")
-    private List<User> usersOfTest;*/
-
     public Long getId() {
         return id;
     }

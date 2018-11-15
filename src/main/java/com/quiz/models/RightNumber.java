@@ -19,10 +19,13 @@ public class RightNumber {
 
     private String generated;
 
+    private int questions;
+
     private int number;
 
-    public RightNumber(String generated, int number) {
+    public RightNumber(String generated, int questions, int number) {
         this.generated = generated;
+        this.questions = questions;
         this.number = number;
     }
 

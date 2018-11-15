@@ -9,8 +9,9 @@
               href="/static/style.css" th:href="@{/static/style.css}"/>
     </head>
     <body>
-        <h1>Results</h1>
-        <p>You have right answered for <span th:text="${numberOfRightAnswers} "></span> answers </p>
+        <h1 class="resultsHead">Results</h1>
+        <p class="textResults">You have <span th:text="${numberOfRightAnswers} "></span>
+            correct ansewrs out of <span th:text="${numberOfQuestions} "></span></p>
         <p><a href="/categories/">Back to choosing tests</a></p>
     </body>
 </html>
